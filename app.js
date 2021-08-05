@@ -1,11 +1,12 @@
 Vue.createApp({
   data() {
     return {
-      url: '',
+      sendURL: '',
+      receiveURL: '',
       token: '',
-      objectID: 0,
-      msg1: '',
-      msg2: '',
+      objectID: 1,
+      username: '',
+      msg: '',
       gotWebJS: false
     };
   },
@@ -17,8 +18,8 @@ Vue.createApp({
       }
       const method = 'POST';
 
-      fetch(`${this.url}`, {
-        body: `token=${this.token}&objectID=${this.objectID}&txt=${this.msg1}&data=${this.msg2}`,
+      fetch(`${this.sendURL}`, {
+        body: `token=${this.token}&objectID=${this.objectID}&username=${this.username}&msg=${this.msg}`,
         headers,
         method
       })
@@ -30,7 +31,7 @@ Vue.createApp({
       }
       const method = 'POST';
 
-      const { body } = await fetch(`${this.url}`, {
+      const { body } = await fetch(`${this.receiveURL}`, {
         body: `token=${this.token}&objectID=${this.objectID}&format=json`,
         headers,
         method
@@ -52,9 +53,13 @@ Vue.createApp({
           document.body.appendChild(myScript);
           this.gotWebJS = true;
         } else {
-          const data = new TextDecoder('utf-8').decode(value).toString().trim();
-          const json = JSON.parse(data);
-          displayData(json);
+          try {
+            const data = new TextDecoder('utf-8').decode(value).toString().trim();
+            const json = JSON.parse(data);
+            displayData(json);
+          } catch(e) {
+            console.error(e);
+          }
         }
         return this.readStream(reader);
       }

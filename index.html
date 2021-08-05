@@ -13,22 +13,22 @@
       <div class="forms">
         <form @submit.prevent="sendData">
           <label for="url">Service URL</label>
-          <input id="url" v-model="url" type="text" />
+          <input id="url" v-model="sendURL" type="text" />
           <label for="token" >Token</label>
           <input id="token" v-model="token" type="text" />
           <label for="objectID">ObjectID</label>
           <input id="objectID" v-model="objectID" type="number" min="0" />
-          <label for="msg1">TXT</label>
-          <input id="msg1" v-model="msg1" type="text" />
-          <label for="msg2" >DATA</label>
-          <input id="msg2" v-model="msg2" type="text" />
-          <button type="submit">Send data</button>
+          <label for="username">Username</label>
+          <input id="username" v-model="username" type="text" />
+          <label for="msg" >Message</label>
+          <input id="msg" v-model="msg" type="text" />
+          <button type="submit">Send</button>
         </form>
       </div>
       <div class="forms">
         <form @submit.prevent="getStream">
           <label for="url">Service URL</label>
-          <input id="url" v-model="url" type="text" />
+          <input id="url" v-model="receiveURL" type="text" />
           <label for="token" >Token</label>
           <input id="token" v-model="token" type="text" />
           <label for="objectID">ObjectID</label>
