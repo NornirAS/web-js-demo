@@ -15,9 +15,9 @@
           <label for="url">Service URL</label>
           <input id="url" v-model="sendURL" type="text" />
           <label for="token" >Token</label>
-          <input id="token" v-model="token" type="text" />
+          <input id="token" v-model="sendToken" type="text" />
           <label for="objectID">ObjectID</label>
-          <input id="objectID" v-model="objectID" type="number" min="0" />
+          <input id="objectID" v-model="sendObjectID" type="number" min="0" />
           <label for="username">Username</label>
           <input id="username" v-model="username" type="text" />
           <label for="msg" >Message</label>
@@ -30,9 +30,9 @@
           <label for="url">Service URL</label>
           <input id="url" v-model="receiveURL" type="text" />
           <label for="token" >Token</label>
-          <input id="token" v-model="token" type="text" />
+          <input id="token" v-model="receiveToken" type="text" />
           <label for="objectID">ObjectID</label>
-          <input id="objectID" v-model="objectID" type="number" min="0" />
+          <input id="objectID" v-model="receiveObjectID" type="number" min="0" />
           <button type="submit">Receive data</button>
         </form>
         <div id="webjs-container"></div>

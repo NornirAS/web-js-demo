@@ -2,11 +2,13 @@ Vue.createApp({
   data() {
     return {
       sendURL: '',
-      receiveURL: '',
-      token: '',
-      objectID: 1,
+      sendToken: '',
+      sendObjectID: 1,
       username: '',
       msg: '',
+      receiveURL: '',
+      receiveToken: '',
+      receiveObjectID: 1,
       gotWebJS: false
     };
   },
@@ -19,7 +21,7 @@ Vue.createApp({
       const method = 'POST';
 
       fetch(`${this.sendURL}`, {
-        body: `token=${this.token}&objectID=${this.objectID}&username=${this.username}&msg=${this.msg}`,
+        body: `token=${this.sendToken}&objectID=${this.sendObjectID}&username=${this.username}&msg=${this.msg}`,
         headers,
         method
       })
@@ -32,7 +34,7 @@ Vue.createApp({
       const method = 'POST';
 
       const { body } = await fetch(`${this.receiveURL}`, {
-        body: `token=${this.token}&objectID=${this.objectID}&format=json`,
+        body: `token=${this.receiveToken}&objectID=${this.receiveObjectID}&format=json`,
         headers,
         method
       })
